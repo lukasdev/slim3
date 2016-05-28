@@ -1,8 +1,10 @@
 <?php
     namespace DownsMaster\Controllers;
+    use DownsMaster\Controllers\Controller;
 
-    class HomeController{
+    class HomeController extends Controller{
         public function index($request, $response, $args){
-            echo 'Estou na home via controller';
+
+            echo $this->algumacoisa;
         }
     }

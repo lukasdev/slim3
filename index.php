@@ -9,7 +9,7 @@
     $container = $app->getContainer();
 
     $container['HomeController'] = function($container) use ($app){
-        return new DownsMaster\Controllers\HomeController();
+        return new DownsMaster\Controllers\HomeController($container);
     };
 
     $app->get('/post/{categoria}/{slug}', function($request, $response, $args){
