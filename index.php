@@ -7,7 +7,8 @@
     ]);
 
     $container = $app->getContainer();
-
+    $container['algumacoisa'] = 'alguma coisa no container';
+    
     $container['HomeController'] = function($container) use ($app){
         return new DownsMaster\Controllers\HomeController($container);
     };
