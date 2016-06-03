@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="pt-BR">
+    <head>
+        <meta charset=UTF-8>
+        <title>Meu template</title>
+        <link href="{{ base_url() }}/app/public/css/style.css" rel="stylesheet" type="text/css" />
+    </head>
+
+    <body>
+        <nav id="menu">
+            <ul>
+                <li><a href="{{ base_url() }}">Cadastrar Clientes</a></li>
+                <li><a href="{{ path_for('clientes') }}">Clientes</a></li>
+            </ul>
+        </nav>
+        <section id="sidebar">
+            {% block sidebar %}
+            {% endblock %}
+        </section>
+        <section id="container">
+            {% block conteudo %}
+            {% endblock %}
+        </section>
+    </body>    
+</html>

@@ -9,7 +9,7 @@
     $container = $app->getContainer();
     $container['view'] = function($container){
         $folder = __DIR__;
-        $view = new \Slim\Views\Twig($folder.'/app/views',[
+        $view = new \Slim\Views\Twig($folder.'/app/public/views',[
             'cache' => false
         ]);
 
@@ -21,10 +21,19 @@
         return $view;
     };
 
+    $container['db'] = function($container){
+        return new PDO('mysql:host=localhost;dbname=videoaulas', 'root', '');
+    };
+
     $container['HomeController'] = function($container) use ($app){
         return new DownsMaster\Controllers\HomeController($container);
     };
+    $container['ClientesController'] = function($container) use ($app){
+        return new DownsMaster\Controllers\ClientesController($container);
+    };
 
+    $app->post('/', 'ClientesController:cadastraCliente');
+    $app->get('/', 'HomeController:index')->setName('home');
 
-    $app->get('/', 'HomeController:index');
+    $app->get('/clientes', 'ClientesController:listaClientes')->setName('clientes');
     $app->run();

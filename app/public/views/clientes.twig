@@ -1,0 +1,11 @@
+{% extends 'utils/template.twig' %}
+{% block sidebar %}
+    {% include 'utils/sidebar.twig' %}
+{% endblock %}
+{% block conteudo %}
+    <ul>
+    {% for cliente in clientes %}
+        <li>{{cliente.nome}} - {{cliente.salario}}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
